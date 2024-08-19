@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
     "noEmit": false,
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
@@ -12,7 +15,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.mts"
+    "src/**/*.mts",
+    "src/**/*.cts"
   ],
   "exclude": [
     "src/**/*.test.ts"

@@ -17,9 +17,34 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./foo": {
+      "import": {
+        "types": "./dist/types/foo/index.d.ts",
+        "default": "./dist/foo/index.js"
+      },
+      "require": {
+        "types": "./dist/types/foo/index.d.cts",
+        "default": "./dist/cjs/foo/index.cjs"
+      }
+    },
+    "./bar": {
+      "import": {
+        "types": "./dist/types/bar/index.d.ts",
+        "default": "./dist/bar/index.js"
+      },
+      "require": {
+        "types": "./dist/types/bar/index.d.cts",
+        "default": "./dist/cjs/bar/index.cjs"
+      }
     }
   },
   "typesVersions": {
@@ -35,6 +60,7 @@
   ],
   "scripts": {
     "build": "nr clean && esno build.ts",
+    "only-dts": "nr clean && esno only-dts.ts",
     "dev": "esno --watch",
     "clean": "rm -rf dist",
     "lint": "eslint .",

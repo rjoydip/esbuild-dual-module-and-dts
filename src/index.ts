@@ -1,5 +1,5 @@
 export const one: number = 1
 export const two: number = 2
 
-export * from './bar'
-export * from './foo'
+export { bar, getBarSync, getBarAsync } from './bar'
+export { foo, getFooSync, getFooAsync } from './foo'
