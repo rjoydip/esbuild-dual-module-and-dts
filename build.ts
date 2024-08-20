@@ -52,11 +52,13 @@ function esmBuild(): Promise<BuildResult> {
   })
 }
 
-const results = await Promise.all([esmBuild(), cjsBuild()])
-
-await exca(`npx tsc ${isWatch ? '-w' : ''} --declaration --emitDeclarationOnly --module esnext --declarationDir ./dist`)
-await exca(`npx tsc ${isWatch ? '-w' : ''} --declaration --emitDeclarationOnly --module commonjs --declarationDir ./dist/cjs`)
-await exca(`echo {"type": "commonjs"} > ./dist/cjs/package.json`)
+const results = await Promise.all([
+  esmBuild(),
+  cjsBuild(),
+  await exca(`npx tsc ${isWatch ? '-w' : ''} --declaration --emitDeclarationOnly --module esnext --declarationDir ./dist`),
+  await exca(`npx tsc ${isWatch ? '-w' : ''} --declaration --emitDeclarationOnly --module commonjs --declarationDir ./dist/cjs`),
+  await exca(`echo {"type": "commonjs"} > ./dist/cjs/package.json`),
+])
 
 if (results[1].metafile) {
   await Promise.all(Object.entries(results[1].metafile.outputs).map(async (item) => {
