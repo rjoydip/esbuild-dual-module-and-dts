@@ -19,7 +19,7 @@
     ".": {
       "import": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.mjs"
       },
       "require": {
         "types": "./dist/types/index.d.cts",
@@ -29,7 +29,7 @@
     "./foo": {
       "import": {
         "types": "./dist/types/foo/index.d.ts",
-        "default": "./dist/foo/index.js"
+        "default": "./dist/foo/index.mjs"
       },
       "require": {
         "types": "./dist/types/foo/index.d.cts",
@@ -39,7 +39,7 @@
     "./bar": {
       "import": {
         "types": "./dist/types/bar/index.d.ts",
-        "default": "./dist/bar/index.js"
+        "default": "./dist/bar/index.mjs"
       },
       "require": {
         "types": "./dist/types/bar/index.d.cts",
